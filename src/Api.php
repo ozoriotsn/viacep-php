@@ -7,6 +7,9 @@ use GuzzleHttp\Client;
 class Api
 {
 
+    /**
+     * @return Client
+     */
     public static function viaCep(){
 
         return new Client([

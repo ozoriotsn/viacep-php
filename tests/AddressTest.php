@@ -8,6 +8,9 @@ use PHPUnit\Framework\TestCase;
 
 class AddressTest extends TestCase
 {
+    /**
+     * @covers Ozoriotsn\ViaCep\ViaCep::findByCep
+     */
     public function testFindByCepSuccess()
     {
         // Arrange
@@ -27,7 +30,10 @@ class AddressTest extends TestCase
         $this->assertEquals('3550308', $address->ibge);
     }
 
-    
+
+    /**
+     * @covers Ozoriotsn\ViaCep\Api::findByCep
+     */
     public function testFindByCepThrowsExceptionForInvalidCep()
     {
         $this->expectException(Exception::class);
@@ -39,5 +45,5 @@ class AddressTest extends TestCase
     }
 
 
-    
+
 }

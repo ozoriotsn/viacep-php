@@ -8,7 +8,7 @@ jobs:
 
    steps:
      - name: Checkout Code
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
 
      - name: Install composer and dependencies
        uses: php-actions/composer@v6
@@ -23,9 +23,9 @@ jobs:
          php_extensions: xdebug
          args: tests --coverage-clover ./coverage.xml
 
-     - name: Upload to Codecov
-       uses: codecov/codecov-action@v2
+     - name: Upload coverage reports to Codecov
+       uses: codecov/codecov-action@v4
        with:
-         token: ${{ secrets.CODE_COV_TOKEN }}
+         token: ${{ secrets.CODECOV_TOKEN }}
          files: ./coverage.xml
          verbose: true
