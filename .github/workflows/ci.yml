@@ -15,9 +15,14 @@ jobs:
 
      - name: PHPUnit Tests
        uses: php-actions/phpunit@v3
+       
+     - name: Setup PHP
+       uses: shivammathur/setup-php@v2
+
        env:
          XDEBUG_MODE: coverage
        with:
+         php-version: 8.1
          bootstrap: vendor/autoload.php
          configuration: phpunit.xml
          php_extensions: xdebug
