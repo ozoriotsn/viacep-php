@@ -4,7 +4,6 @@ header('Content-Type: application/json; charset=utf-8');
 
 use Ozoriotsn\ViaCep\ViaCep;
 
-
 try {
     $viacep = ViaCep::class;
     $zipCodeAddress = $viacep::findByCep('01001-000')->toJson();
