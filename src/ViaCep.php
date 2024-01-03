@@ -2,9 +2,9 @@
 
 namespace Ozoriotsn\ViaCep;
 
+use Exception;
 use Ozoriotsn\ViaCep\Address;
 use Ozoriotsn\ViaCep\Validation;
-use GuzzleHttp\Exception\GuzzleException;
 
 
 class ViaCep
@@ -13,13 +13,12 @@ class ViaCep
  
 
     /**
-     * @throws GuzzleException
      * Find the address information for a given CEP.
      *
      * @param string $cep The CEP to search for.
      * @param string $type The type of response to return.
      * @return mixed The address information.
-     * @throws \Exception If an error occurs during the API request.
+     * @throws Exception If an error occurs during the API request.
      */
     public static function findByCep($cep, $type = 'json')
     {
@@ -44,8 +43,8 @@ class ViaCep
 
             ]);
 
-        } catch (GuzzleException $e) {
-            throw new \Exception($e->getMessage());
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
 
     }

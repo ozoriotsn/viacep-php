@@ -10,13 +10,15 @@ class AddressTest extends TestCase
 {
     /**
      * @covers Ozoriotsn\ViaCep\ViaCep::findByCep
+     * @covers Ozoriotsn\ViaCep\Validation
+     * @covers Ozoriotsn\ViaCep\Api 
+     * @covers Ozoriotsn\ViaCep\Address
+     * @return void
      */
     public function testFindByCepSuccess()
     {
         // Arrange
         $cep = '01001-000';
-
-        // Act
         $address = ViaCep::findByCep($cep, 'json');
 
         // Assert
@@ -32,18 +34,20 @@ class AddressTest extends TestCase
 
 
     /**
-     * @covers Ozoriotsn\ViaCep\Api::findByCep
+     * @covers Ozoriotsn\ViaCep\Validation::validateCep
+     * @covers Ozoriotsn\ViaCep\ViaCep::findByCep
+     * @return mixed
      */
     public function testFindByCepThrowsExceptionForInvalidCep()
     {
+    
+        // Assert
         $this->expectException(Exception::class);
 
-        $cep = 'invalid-cep';
-        $type = 'json';
+        // Act
+        ViaCep::findByCep('123', 'json');
 
-        ViaCep::findByCep($cep, $type);
+
     }
-
-
 
 }
