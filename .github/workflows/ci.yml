@@ -1,9 +1,19 @@
 name: CI
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+  
 
 jobs:
- build-test:
+ build:
    runs-on: ubuntu-latest
 
    steps:
@@ -26,11 +36,22 @@ jobs:
          bootstrap: vendor/autoload.php
          configuration: phpunit.xml
          php_extensions: xdebug
-         args: tests --coverage-clover ./coverage.xml
+         args: tests --coverage-clover coverage.xml
 
      - name: Upload coverage reports to Codecov
        uses: codecov/codecov-action@v3
        with:
          token: ${{ secrets.CODECOV_TOKEN }}
-         files: ./coverage.xml
+         files: coverage.xml
          verbose: true
+
+ deploy-development:
+      runs-on: ubuntu-latest
+      environment: 'Development'
+      needs: build
+
+ deploy-production:
+      runs-on: ubuntu-latest
+      environment: 'Production'
+      needs: [build, deploy-development]
+      
