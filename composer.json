@@ -1,6 +1,6 @@
 {
     "name": "ozoriotsn/viacep",
-    "description": "return addres for VIACEP API",
+    "description": "ViaCep SDK for PHP",
     "license": "MIT",
     "type": "library",
     "autoload": {
@@ -10,7 +10,7 @@
     },
     "authors": [
         {
-            "name": "ozorio S Neto"
+            "name": "Ozoriotsn"
         }
     ],
     "require": {
