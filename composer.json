@@ -1,6 +1,7 @@
 {
     "name": "ozoriotsn/viacep",
     "description": "return addres for VIACEP API",
+    "license": "MIT",
     "type": "library",
     "autoload": {
         "psr-4": {
