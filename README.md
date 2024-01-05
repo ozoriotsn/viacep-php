@@ -17,7 +17,7 @@ Free webservice for search zip code address in all brazil locations
 Composer install
 
 ``` bash
-$ composer require ozoriotsn/viacep-php
+composer require ozoriotsn/viacep
 ```
 
 ## Usage
@@ -61,7 +61,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Testing
 
 ``` bash
-$ ./vendor/bin/phpunit/ tests
+ ./vendor/bin/phpunit/ tests
 ```
 
 ## Contributing
