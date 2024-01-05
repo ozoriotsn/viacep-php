@@ -25,7 +25,8 @@ $ composer require ozoriotsn/viacep-php
 ``` php
 
 <?php
-
+    require __DIR__ . '/vendor/autoload.php';
+    
     use Ozoriotsn\ViaCep\ViaCep;
 
     $viacep = ViaCep::class;
